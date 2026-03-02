@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Agreetech Solution</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">🌱 Agreetech Solution</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="crops.html">Crops</a>
+            <a href="contact.html">Contact</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="toggleMenu()" class="menu-btn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <section class="about reveal">
+        <h1>About Agreetech Solution</h1>
+        <p class="about-lead">
+            Agreetech Solution is a smart agriculture platform designed to help
+            farmers using modern technology.
+        </p>
+        <div class="about-grid">
+            <div class="about-card">
+                <span class="about-icon">🎯</span>
+                <h3>Our Mission</h3>
+                <p>To empower every farmer with technology-driven insights for better yields and sustainable farming.</p>
+            </div>
+            <div class="about-card">
+                <span class="about-icon">👁</span>
+                <h3>Our Vision</h3>
+                <p>A world where technology bridges the gap between traditional farming and modern agriculture.</p>
+            </div>
+        </div>
+        <p>
+            We provide crop guidance, weather updates, market prices, and expert advice to improve farming productivity.
+            This project connects agriculture with technology to make farming smarter, easier, and more profitable.
+        </p>
+        <div class="about-stats">
+            <div class="about-stat"><span class="stat-num">500+</span><span>Farmers</span></div>
+            <div class="about-stat"><span class="stat-num">120+</span><span>Crops</span></div>
+            <div class="about-stat"><span class="stat-num">50+</span><span>Villages</span></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>🌱 Agreetech Solution</h3>
+                <p>Smart Farming with Modern Technology</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">🐦</a>
+                    <a href="https://wa.me/916206382586" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="crops.html">Crops</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+        <p class="copy">&copy; 2026 Agreetech Solution. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <script src="js/script.js"></script>
+</body>
+</html>

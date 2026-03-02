@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crops - Agreetech Solution</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">🌱 Agreetech Solution</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="crops.html">Crops</a>
+            <a href="contact.html">Contact</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="toggleMenu()" class="menu-btn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <section class="services reveal">
+        <h2>Crop Information</h2>
+        <p class="section-intro">Search and explore our crop database. Use the smart recommendation tool below to get personalized crop suggestions.</p>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="🔍 Search crops..." onkeyup="searchCrops()" oninput="searchCrops()">
+        </div>
+        <div class="service-box crop-grid">
+            <div class="card crop-card">
+                <span class="card-icon">🌾</span>
+                <h3>Wheat</h3>
+                <p>Best Season: Winter | Water: Medium | Harvest: 4-5 months</p>
+            </div>
+            <div class="card crop-card">
+                <span class="card-icon">🌾</span>
+                <h3>Rice</h3>
+                <p>Best Season: Rainy | Water: High | Harvest: 3-4 months</p>
+            </div>
+            <div class="card crop-card">
+                <span class="card-icon">🌽</span>
+                <h3>Maize</h3>
+                <p>Best Season: Summer | Water: Low | Harvest: 2-3 months</p>
+            </div>
+            <div class="card crop-card">
+                <span class="card-icon">🍬</span>
+                <h3>Sugarcane</h3>
+                <p>Best Season: Tropical | Water: High | Harvest: 10-12 months</p>
+            </div>
+            <div class="card crop-card">
+                <span class="card-icon">🥔</span>
+                <h3>Potato</h3>
+                <p>Best Season: Winter | Water: Medium | Harvest: 3-4 months</p>
+            </div>
+            <div class="card crop-card">
+                <span class="card-icon">🍅</span>
+                <h3>Tomato</h3>
+                <p>Best Season: Summer | Water: Medium | Harvest: 2-3 months</p>
+            </div>
+            <div class="card crop-card">
+                <span class="card-icon">🍆</span>
+                <h3>Brinjal</h3>
+                <p>Best Season: Summer | Water: Medium | Harvest: 3-4 months</p>
+            </div>
+            <div class="card crop-card">
+                <span class="card-icon">🥜</span>
+                <h3>Groundnut</h3>
+                <p>Best Season: Winter | Water: Low | Harvest: 4-5 months</p>
+            </div>
+            <div class="card crop-card">
+                <span class="card-icon">🌻</span>
+                <h3>Sunflower</h3>
+                <p>Best Season: Summer | Water: Low | Harvest: 3-4 months</p>
+            </div>
+        </div>
+        <p id="noResults" class="no-results" style="display:none">No crops match your search. Try a different term.</p>
+    </section>
+
+    <section class="recommend-section reveal">
+        <h2>Smart Crop Recommendation</h2>
+        <div class="recommend-form">
+            <div>
+                <label>Soil Type:</label>
+                <select id="soil">
+                    <option value="">Select Soil</option>
+                    <option value="clay">Clay</option>
+                    <option value="sandy">Sandy</option>
+                    <option value="loamy">Loamy</option>
+                </select>
+            </div>
+            <div>
+                <label>Season:</label>
+                <select id="season">
+                    <option value="">Select Season</option>
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                    <option value="monsoon">Monsoon</option>
+                </select>
+            </div>
+            <div>
+                <label>Water Availability:</label>
+                <select id="water">
+                    <option value="">Select Water Level</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="recommendCrop()" class="btn btn-primary">Recommend Crop</button>
+        <div id="result" class="result-box"></div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>🌱 Agreetech Solution</h3>
+                <p>Smart Farming with Modern Technology</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">🐦</a>
+                    <a href="https://wa.me/916206382586" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="crops.html">Crops</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+        <p class="copy">&copy; 2026 Agreetech Solution. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <script src="js/script.js"></script>
+</body>
+</html>

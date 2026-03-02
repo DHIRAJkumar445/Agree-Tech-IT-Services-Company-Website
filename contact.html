@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Agreetech Solution</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">🌱 Agreetech Solution</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="crops.html">Crops</a>
+            <a href="contact.html">Contact</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="toggleMenu()" class="menu-btn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <section class="contact reveal">
+        <h2>Contact Us</h2>
+        <p class="contact-intro">Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+        <div class="contact-info">
+            <div class="contact-info-item">
+                <span class="contact-icon">📧</span>
+                <a href="mailto:Dhirajrairaj76@gmail.com">Dhirajrairaj76@gmail.com</a>
+            </div>
+            <div class="contact-info-item">
+                <span class="contact-icon">📞</span>
+                <a href="tel:+916206382586">+91 6206382586</a>
+            </div>
+            <div class="contact-info-item">
+                <span class="contact-icon">📍</span>
+                <span>Agri Village, India</span>
+            </div>
+        </div>
+        <form id="contactForm" class="contact-form" action="api/contact.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>🌱 Agreetech Solution</h3>
+                <p>Smart Farming with Modern Technology</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">🐦</a>
+                    <a href="https://wa.me/916206382586" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="crops.html">Crops</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+        <p class="copy">&copy; 2026 Agreetech Solution. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <div id="toast">Message Sent Successfully</div>
+    <script src="js/script.js"></script>
+</body>
+</html>

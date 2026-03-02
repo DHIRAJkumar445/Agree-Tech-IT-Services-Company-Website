@@ -1,0 +1,22 @@
+{
+  "name": "agreetech-solution",
+  "version": "1.0.0",
+  "description": "Smart Farming with Agreetech - PHP & Node.js backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "agritech",
+    "farming",
+    "smart-agriculture"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^4.22.1"
+  },
+  "type": "commonjs"
+}

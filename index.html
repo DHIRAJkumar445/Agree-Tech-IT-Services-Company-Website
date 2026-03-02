@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agreetech Solution | Smart Farming</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">🌱 Agreetech Solution</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="crops.html">Crops</a>
+            <a href="contact.html">Contact</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="toggleMenu()" class="menu-btn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">🌱 Smart Agriculture Platform</span>
+            <h1>Smart Farming with Agreetech</h1>
+            <p>Empowering farmers with modern technology, real-time weather insights, and data-driven crop recommendations.</p>
+            <a href="crops.html" class="btn btn-primary">Explore Crops</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="counter-section reveal">
+        <div class="counter-box">
+            <h2 class="counter" data-target="500">0</h2>
+            <p>Farmers Helped</p>
+        </div>
+        <div class="counter-box">
+            <h2 class="counter" data-target="120">0</h2>
+            <p>Crops Listed</p>
+        </div>
+        <div class="counter-box">
+            <h2 class="counter" data-target="1000">0</h2>
+            <p>Happy Users</p>
+        </div>
+    </section>
+
+    <!-- Weather Section -->
+    <section class="weather-section reveal">
+        <h2>Today's Farm Weather</h2>
+        <div class="weather-card">
+            <h3 id="temp">Temperature: --</h3>
+            <p id="humidity">Humidity: --</p>
+            <p id="rain">Rain Chance: --</p>
+            <p id="wind">Wind Speed: --</p>
+            <button onclick="loadWeather()" class="btn btn-secondary">Check Weather</button>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works reveal">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <span class="step-num">1</span>
+                <h3>Choose Your Crop</h3>
+                <p>Browse our crop database and get smart recommendations based on soil, season, and water.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">2</span>
+                <h3>Check Weather</h3>
+                <p>Get real-time weather updates to plan irrigation, planting, and harvesting.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">3</span>
+                <h3>Grow & Sell Smart</h3>
+                <p>Follow expert guidance and sell at the right time with market price insights.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services reveal">
+        <h2>Our Services</h2>
+        <div class="service-box">
+            <div class="card">
+                <span class="card-icon">🌾</span>
+                <h3>Crop Guidance</h3>
+                <p>Complete information about crops and farming methods.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🌦</span>
+                <h3>Weather Updates</h3>
+                <p>Real-time weather updates for better farming decisions.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">💰</span>
+                <h3>Market Prices</h3>
+                <p>Latest crop market prices and optimal selling times.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">👨‍🌾</span>
+                <h3>Expert Advice</h3>
+                <p>Consult agriculture experts for better productivity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Crops -->
+    <section class="featured-crops reveal">
+        <h2>Popular Crops</h2>
+        <div class="featured-grid">
+            <a href="crops.html" class="featured-card">
+                <span class="featured-icon">🌾</span>
+                <h3>Wheat</h3>
+                <p>Winter staple crop</p>
+            </a>
+            <a href="crops.html" class="featured-card">
+                <span class="featured-icon">🌾</span>
+                <h3>Rice</h3>
+                <p>Monsoon favorite</p>
+            </a>
+            <a href="crops.html" class="featured-card">
+                <span class="featured-icon">🌽</span>
+                <h3>Maize</h3>
+                <p>Summer harvest</p>
+            </a>
+            <a href="crops.html" class="featured-card">
+                <span class="featured-icon">🥬</span>
+                <h3>Vegetables</h3>
+                <p>Year-round options</p>
+            </a>
+        </div>
+        <a href="crops.html" class="btn btn-outline">View All Crops</a>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials reveal">
+        <h2>What Farmers Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"Agreetech helped me choose the right crop for my soil. My wheat yield increased by 30%!"</p>
+                <span class="testimonial-author">— Ramesh K., Farmer</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"Weather updates are a game-changer. I never miss the right planting window anymore."</p>
+                <span class="testimonial-author">— Priya S., Agri Entrepreneur</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"Simple, useful, and free. Every farmer should use this platform."</p>
+                <span class="testimonial-author">— Kumar M., Village Leader</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner reveal">
+        <h2>Ready to Grow Smarter?</h2>
+        <p>Join thousands of farmers using Agreetech for better harvests.</p>
+        <div class="cta-buttons">
+            <a href="crops.html" class="btn btn-primary">Get Started</a>
+            <a href="contact.html" class="btn btn-outline-light">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>🌱 Agreetech Solution</h3>
+                <p>Smart Farming with Modern Technology</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">🐦</a>
+                    <a href="https://wa.me/916206382586" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="crops.html">Crops</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+        <p class="copy">&copy; 2026 Agreetech Solution. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <!-- Toast -->
+    <div id="toast">Message Sent Successfully</div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
