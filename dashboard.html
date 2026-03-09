@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agreetech Admin Dashboard — platform activity overview, key metrics and quick links.">
+    <meta name="theme-color" content="#0d9488">
+    <title>Dashboard - Agreetech Solution</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">🌱 Agreetech Solution</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-lang-key="nav-home">Home</a>
+            <a href="about.html" data-lang-key="nav-about">About</a>
+            <a href="crops.html" data-lang-key="nav-crops">Crops</a>
+            <a href="scanner.html">Scanner</a>
+            <a href="dashboard.html" data-lang-key="nav-dash">Dashboard</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropbtn">More ▾</button>
+                <div class="nav-dropdown-content">
+                    <a href="schemes.html" data-lang-key="nav-schemes">Govt Schemes</a>
+                    <a href="store.html" data-lang-key="nav-store">Agri-Store</a>
+                    <a href="community.html" data-lang-key="nav-community">Community</a>
+                </div>
+            </div>
+        </div>
+        <!-- Language Toggle -->
+        <div class="lang-toggle en" id="langToggle" onclick="toggleLanguage()" style="margin-right:1rem; margin-top:0.25rem;">
+            <div class="lang-slider"></div>
+            <span class="lang-option">EN</span>
+            <span class="lang-option">HI</span>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="logout()" class="logout-btn visible" id="logoutBtn">🚪 Logout</button>
+        <button onclick="toggleMenu()" class="menu-btn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <span class="page-hero-emoji">📊</span>
+        <h1>Agreetech Dashboard</h1>
+        <p>Welcome back! Here's an overview of the platform's key metrics and activity.</p>
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span class="current">Dashboard</span>
+        </nav>
+    </div>
+
+    <section class="dashboard-section reveal">
+        <p class="section-intro" id="welcomeMsg">Loading your profile...</p>
+        <div class="dashboard">
+            <div class="dash-card">
+                <h2 id="farmers">0</h2>
+                <p>Total Farmers</p>
+                <span class="trend up">↑ 12% this month</span>
+            </div>
+            <div class="dash-card">
+                <h2 id="crops">0</h2>
+                <p>Crops Listed</p>
+                <span class="trend up">↑ 3 new added</span>
+            </div>
+            <div class="dash-card">
+                <h2 id="messages">0</h2>
+                <p>Messages Received</p>
+                <span class="trend up">↑ 8 today</span>
+            </div>
+            <div class="dash-card">
+                <h2 id="villages">0</h2>
+                <p>Villages Connected</p>
+                <span class="trend up">↑ 5 new</span>
+            </div>
+        </div>
+        <div class="dashboard-quick-links">
+            <a href="crops.html" class="dash-link">🌾 View Crops</a>
+            <a href="contact.html" class="dash-link">✉️ View Messages</a>
+            <a href="index.html#register" class="dash-link">📝 Manage Farmers</a>
+        </div>
+
+        <!-- PROFIT CALCULATOR -->
+        <div class="calculator-panel reveal">
+            <h3 style="margin-bottom:0.5rem; font-size:1.3rem;">💰 Profit & Expense Calculator</h3>
+            <p style="color:var(--text-muted); margin-bottom:1.5rem; font-size:0.95rem;">Estimate your net returns based on land size, seed costs, fertilizer costs, and current mandi rates.</p>
+            
+            <div class="calc-grid">
+                <div class="calc-field">
+                    <label>Crop Type</label>
+                    <select id="calcCrop" class="form-input" style="padding-left:1rem;">
+                        <option value="wheat">🌾 Wheat (Estimate: ₹2200/Q)</option>
+                        <option value="rice">🌾 Rice (Estimate: ₹2500/Q)</option>
+                        <option value="cotton">🌱 Cotton (Estimate: ₹6000/Q)</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>Land Size (Acres)</label>
+                    <div class="calc-input-group">
+                        <input type="number" id="calcLand" class="form-input" placeholder="e.g. 5" min="1" step="0.5">
+                    </div>
+                </div>
+                <div class="calc-field">
+                    <label>Total Seed Cost (₹)</label>
+                    <div class="calc-input-group">
+                        <span>₹</span>
+                        <input type="number" id="calcSeeds" class="form-input" placeholder="e.g. 15000">
+                    </div>
+                </div>
+                <div class="calc-field">
+                    <label>Total Fertilizer/Pesticide Cost (₹)</label>
+                    <div class="calc-input-group">
+                        <span>₹</span>
+                        <input type="number" id="calcFert" class="form-input" placeholder="e.g. 8000">
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="calculateProfit()" style="width:100%;">Calculate Estimated Profit</button>
+            <div class="profit-result">
+                <h4 id="calcResultLabel">Estimated Net Profit / Loss</h4>
+                <p class="amount" id="calcResultAmount">₹0</p>
+            </div>
+        </div>
+
+        <!-- CROP TASK CALENDAR -->
+        <div class="calendar-panel reveal">
+            <h3 style="margin-bottom:0.5rem; font-size:1.3rem;">📅 Crop Task Calendar</h3>
+            <p style="color:var(--text-muted); margin-bottom:1.5rem; font-size:0.95rem;">Generate a personalized task schedule based on your crop and sowing date.</p>
+            
+            <div class="calc-grid" style="grid-template-columns: 1fr 1fr 150px; align-items: end;">
+                <div class="calc-field">
+                    <label>Select Crop</label>
+                    <select id="calCrop" class="form-input">
+                        <option value="wheat">🌾 Wheat</option>
+                        <option value="rice">🌾 Rice</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>Sowing Date</label>
+                    <input type="date" id="calDate" class="form-input">
+                </div>
+                <div>
+                    <button class="btn btn-primary" onclick="generateCalendar()" style="width:100%; padding:0.8rem;">Generate</button>
+                </div>
+            </div>
+            
+            <div id="calendarResult"></div>
+        </div>
+    </section>
+
+    <!-- CHART SECTION -->
+    <div class="chart-section reveal">
+        <div class="chart-wrapper">
+            <p class="chart-title">📈 Monthly Crop Activity (2026)</p>
+            <canvas id="cropChart" height="120"></canvas>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>🌱 Agreetech Solution</h3>
+                <p>Smart Farming with Modern Technology</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
+                    <a href="https://wa.me/916206382586" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="crops.html">Crops</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+        <p class="copy">© 2026 Agreetech Solution. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <a href="https://wa.me/916206382586" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+        <span class="wa-pulse"></span>💬
+        <span class="wa-tooltip">Chat on WhatsApp</span>
+    </a>
+    <div id="toast"></div>
+    <script src="js/script.js"></script>
+</body>
+</html>

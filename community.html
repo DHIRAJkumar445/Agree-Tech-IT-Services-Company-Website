@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kisan Chaupal - Agreetech Community Forum. Ask questions and get answers from agriculture experts.">
+    <meta name="theme-color" content="#0d9488">
+    <title>Kisan Chaupal - Agreetech Solution</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">🌱 Agreetech Solution</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-lang-key="nav-home">Home</a>
+            <a href="about.html" data-lang-key="nav-about">About</a>
+            <a href="crops.html" data-lang-key="nav-crops">Crops</a>
+            <a href="scanner.html">Scanner</a>
+            <a href="dashboard.html" data-lang-key="nav-dash">Dashboard</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropbtn active">More ▾</button>
+                <div class="nav-dropdown-content">
+                    <a href="schemes.html" data-lang-key="nav-schemes">Govt Schemes</a>
+                    <a href="store.html" data-lang-key="nav-store">Agri-Store</a>
+                    <a href="community.html" data-lang-key="nav-community" class="active">Community</a>
+                </div>
+            </div>
+        </div>
+        <!-- Language Toggle -->
+        <div class="lang-toggle en" id="langToggle" onclick="toggleLanguage()" style="margin-right:1rem; margin-top:0.25rem;">
+            <div class="lang-slider"></div>
+            <span class="lang-option">EN</span>
+            <span class="lang-option">HI</span>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="logout()" class="logout-btn" id="logoutBtn">Logout</button>
+        <button onclick="toggleMenu()" class="menu-btn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <span class="page-hero-emoji">💬</span>
+        <h1>Kisan Chaupal</h1>
+        <p>Our Community Forum. Ask questions, share farming tips, and get advice from agricultural experts.</p>
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span class="current">Community</span>
+        </nav>
+    </div>
+
+    <section class="services reveal" style="padding-top:2rem">
+        <div class="forum-container">
+            
+            <!-- Ask Box -->
+            <div class="forum-ask-box">
+                <h3 style="margin-bottom: 1rem;">Ask a Question</h3>
+                <input type="text" id="postTitle" class="form-input" placeholder="Subject (e.g., Yellow spots on Tomato leaves)">
+                <textarea id="postBody" class="form-input" style="height:80px; resize:none;" placeholder="Detail your problem here..."></textarea>
+                <button class="btn btn-primary" onclick="submitPost()">Post Question</button>
+            </div>
+
+            <!-- Forum Feed -->
+            <div id="forumFeed">
+                
+                <!-- Mock Post 1 -->
+                <div class="forum-post">
+                    <div class="post-header">
+                        <div class="post-avatar">RM</div>
+                        <div class="post-meta">
+                            <h4>Ramesh Mukhiya</h4>
+                            <span>2 hours ago • Wheat Crop</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <strong>My wheat crop is turning pale yellow at the tips. What could be the reason?</strong><br>
+                        I planted the seeds 30 days ago. I haven't applied urea yet. Is this a nitrogen deficiency or a disease?
+                    </div>
+                    <div class="post-expert-reply">
+                        <strong>Agri-Expert Dr. Singh:</strong> Yes, this is a classic sign of Nitrogen deficiency, common around day 30. Please apply the first dose of Urea (top dressing) immediately followed by light irrigation.
+                    </div>
+                    <div class="post-footer">
+                        <button class="post-action">💬 1 Reply</button>
+                        <button class="post-action">👍 12 Likes</button>
+                    </div>
+                </div>
+
+                <!-- Mock Post 2 -->
+                <div class="forum-post">
+                    <div class="post-header">
+                        <div class="post-avatar">SD</div>
+                        <div class="post-meta">
+                            <h4>Sunita Devi</h4>
+                            <span>Yesterday • General Farming</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <strong>What is the the best organic alternative to chemical pesticides for aphids?</strong><br>
+                        I run a small organic farm and have a severe aphid infestation on my vegetables.
+                    </div>
+                    <div class="post-expert-reply">
+                        <strong>Agri-Expert Dr. Verma:</strong> Neem Oil spray is highly effective against aphids. Mix 5ml of cold-pressed Neem Oil and 2ml of liquid soap in 1 liter of water. Spray thoroughly on the underside of the leaves early in the morning.
+                    </div>
+                    <div class="post-footer">
+                        <button class="post-action">💬 3 Replies</button>
+                        <button class="post-action">👍 28 Likes</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>🌱 Agreetech Solution</h3>
+                <p>Smart Farming with Modern Technology</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" aria-label="Twitter">🐦</a>
+                    <a href="https://wa.me/916206382586" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="crops.html">Crops</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+        <p class="copy">© 2026 Agreetech Solution. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <a href="https://wa.me/916206382586" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+        <span class="wa-pulse"></span>💬
+        <span class="wa-tooltip">Chat on WhatsApp</span>
+    </a>
+    <div id="toast"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore crop database on Agreetech Solution — get smart crop recommendations based on soil, season & water.">
+    <meta name="theme-color" content="#0d9488">
+    <title>Crops - Agreetech Solution</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">🌱 Agreetech Solution</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-lang-key="nav-home">Home</a>
+            <a href="about.html" data-lang-key="nav-about">About</a>
+            <a href="crops.html" data-lang-key="nav-crops">Crops</a>
+            <a href="contact.html" data-lang-key="nav-contact">Contact</a>
+            <a href="dashboard.html" data-lang-key="nav-dash">Dashboard</a>
+        </div>
+        <!-- Language Toggle -->
+        <div class="lang-toggle en" id="langToggle" onclick="toggleLanguage()" style="margin-right:1rem; margin-top:0.25rem;">
+            <div class="lang-slider"></div>
+            <span class="lang-option">EN</span>
+            <span class="lang-option">HI</span>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="logout()" class="logout-btn" id="logoutBtn">Logout</button>
+        <button onclick="toggleMenu()" class="menu-btn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <span class="page-hero-emoji">🌾</span>
+        <h1>Crop Information</h1>
+        <p>Search our database, filter by season, and get smart AI-powered crop recommendations.</p>
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span class="current">Crops</span>
+        </nav>
+    </div>
+
+    <section class="services reveal" style="padding-top:3.5rem">
+        <h2 class="section-title">Explore Crops</h2>
+        <div class="section-line"></div>
+
+        <!-- Search -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="🔍 Search crops..." onkeyup="searchCrops()" oninput="searchCrops()">
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" data-filter="all" onclick="filterCrops('all', this)">🌿 All</button>
+            <button class="filter-tab" data-filter="winter" onclick="filterCrops('winter', this)">❄️ Winter</button>
+            <button class="filter-tab" data-filter="summer" onclick="filterCrops('summer', this)">☀️ Summer</button>
+            <button class="filter-tab" data-filter="monsoon" onclick="filterCrops('monsoon', this)">🌧️ Monsoon</button>
+            <button class="filter-tab" data-filter="tropical" onclick="filterCrops('tropical', this)">🌴 Tropical</button>
+        </div>
+
+        <!-- Crop Cards Grid -->
+        <div class="service-box crop-grid">
+            <div class="card crop-card" data-season="winter" onclick="openCropDetail('wheat')">
+                <span class="card-icon">🌾</span>
+                <h3>Wheat</h3>
+                <p>Best Season: Winter | Water: Medium | Harvest: 4-5 months</p>
+                <div class="crop-tags">
+                    <span class="crop-tag">❄️ Winter</span>
+                    <span class="crop-tag">💧 Medium</span>
+                    <span class="crop-tag">4-5 months</span>
+                </div>
+            </div>
+            <div class="card crop-card" data-season="monsoon" onclick="openCropDetail('rice')">
+                <span class="card-icon">🌾</span>
+                <h3>Rice</h3>
+                <p>Best Season: Monsoon | Water: High | Harvest: 3-4 months</p>
+                <div class="crop-tags">
+                    <span class="crop-tag">🌧️ Monsoon</span>
+                    <span class="crop-tag">💧💧 High</span>
+                    <span class="crop-tag">3-4 months</span>
+                </div>
+            </div>
+            <div class="card crop-card" data-season="summer" onclick="openCropDetail('maize')">
+                <span class="card-icon">🌽</span>
+                <h3>Maize</h3>
+                <p>Best Season: Summer | Water: Low | Harvest: 2-3 months</p>
+                <div class="crop-tags">
+                    <span class="crop-tag">☀️ Summer</span>
+                    <span class="crop-tag">💧 Low</span>
+                    <span class="crop-tag">2-3 months</span>
+                </div>
+            </div>
+            <div class="card crop-card" data-season="tropical" onclick="openCropDetail('sugarcane')">
+                <span class="card-icon">🍬</span>
+                <h3>Sugarcane</h3>
+                <p>Best Season: Tropical | Water: High | Harvest: 10-12 months</p>
+                <div class="crop-tags">
+                    <span class="crop-tag">🌴 Tropical</span>
+                    <span class="crop-tag">💧💧 High</span>
+                    <span class="crop-tag">10-12 months</span>
+                </div>
+            </div>
+            <div class="card crop-card" data-season="winter" onclick="openCropDetail('potato')">
+                <span class="card-icon">🥔</span>
+                <h3>Potato</h3>
+                <p>Best Season: Winter | Water: Medium | Harvest: 3-4 months</p>
+                <div class="crop-tags">
+                    <span class="crop-tag">❄️ Winter</span>
+                    <span class="crop-tag">💧 Medium</span>
+                    <span class="crop-tag">3-4 months</span>
+                </div>
+            </div>
+            <div class="card crop-card" data-season="summer" onclick="openCropDetail('tomato')">
+                <span class="card-icon">🍅</span>
+                <h3>Tomato</h3>
+                <p>Best Season: Summer | Water: Medium | Harvest: 2-3 months</p>
+                <div class="crop-tags">
+                    <span class="crop-tag">☀️ Summer</span>
+                    <span class="crop-tag">💧 Medium</span>
+                    <span class="crop-tag">2-3 months</span>
+                </div>
+            </div>
+            <div class="card crop-card" data-season="summer" onclick="openCropDetail('brinjal')">
+                <span class="card-icon">🍆</span>
+                <h3>Brinjal</h3>
+                <p>Best Season: Summer | Water: Medium | Harvest: 3-4 months</p>
+                <div class="crop-tags">
+                    <span class="crop-tag">☀️ Summer</span>
+                    <span class="crop-tag">💧 Medium</span>
+                    <span class="crop-tag">3-4 months</span>
+                </div>
+            </div>
+            <div class="card crop-card" data-season="winter" onclick="openCropDetail('groundnut')">
+                <span class="card-icon">🥜</span>
+                <h3>Groundnut</h3>
+                <p>Best Season: Winter | Water: Low | Harvest: 4-5 months</p>
+                <div class="crop-tags">
+                    <span class="crop-tag">❄️ Winter</span>
+                    <span class="crop-tag">💧 Low</span>
+                    <span class="crop-tag">4-5 months</span>
+                </div>
+            </div>
+            <div class="card crop-card" data-season="summer" onclick="openCropDetail('sunflower')">
+                <span class="card-icon">🌻</span>
+                <h3>Sunflower</h3>
+                <p>Best Season: Summer | Water: Low | Harvest: 3-4 months</p>
+                <div class="crop-tags">
+                    <span class="crop-tag">☀️ Summer</span>
+                    <span class="crop-tag">💧 Low</span>
+                    <span class="crop-tag">3-4 months</span>
+                </div>
+            </div>
+        </div>
+        <p id="noResults" class="no-results" style="display:none">No crops match your search. Try a different term.</p>
+    </section>
+
+    <!-- SMART RECOMMENDATION -->
+    <section class="recommend-section reveal">
+        <h2 class="section-title">Smart Crop Recommendation</h2>
+        <div class="section-line"></div>
+        <p class="section-sub">Tell us your conditions and our AI will recommend the best crops to grow.</p>
+        <div class="recommend-form">
+            <div>
+                <label>Soil Type:</label>
+                <select id="soil">
+                    <option value="">Select Soil</option>
+                    <option value="clay">Clay</option>
+                    <option value="sandy">Sandy</option>
+                    <option value="loamy">Loamy</option>
+                </select>
+            </div>
+            <div>
+                <label>Season:</label>
+                <select id="season">
+                    <option value="">Select Season</option>
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                    <option value="monsoon">Monsoon</option>
+                </select>
+            </div>
+            <div>
+                <label>Water Availability:</label>
+                <select id="water">
+                    <option value="">Select Water Level</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+        </div>
+        <button onclick="recommendCrop()" class="btn btn-primary">🤖 Recommend Crop</button>
+        <div id="result" class="result-box"></div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>🌱 Agreetech Solution</h3>
+                <p>Smart Farming with Modern Technology</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
+                    <a href="https://wa.me/916206382586" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="crops.html">Crops</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+        <p class="copy">© 2026 Agreetech Solution. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <a href="https://wa.me/916206382586" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+        <span class="wa-pulse"></span>💬
+        <span class="wa-tooltip">Chat on WhatsApp</span>
+    </a>
+    <div id="toast"></div>
+
+    <!-- CROP DETAIL MODAL -->
+    <div id="cropModal" class="crop-modal" onclick="closeCropModal(event)">
+        <div class="crop-modal-content">
+            <div class="crop-modal-header" style="position:relative;">
+                <button class="tts-btn" id="ttsBtn" onclick="speakCropDetails()" aria-label="Listen to Content" title="Listen to tips">🔊</button>
+                <button class="crop-modal-close" onclick="closeCropDetail()" aria-label="Close">✕</button>
+                <span class="crop-emoji" id="modalEmoji">🌾</span>
+                <h2 id="modalCropName">Wheat</h2>
+            </div>
+            <div class="crop-modal-body">
+                <div class="crop-detail-grid">
+                    <div class="crop-detail-item"><div class="detail-label">Best Season</div><div class="detail-value" id="modalSeason">--</div></div>
+                    <div class="crop-detail-item"><div class="detail-label">Water Needed</div><div class="detail-value" id="modalWater">--</div></div>
+                    <div class="crop-detail-item"><div class="detail-label">Harvest Time</div><div class="detail-value" id="modalHarvest">--</div></div>
+                    <div class="crop-detail-item"><div class="detail-label">Best Soil</div><div class="detail-value" id="modalSoil">--</div></div>
+                </div>
+                <p class="crop-detail-desc" id="modalDesc">--</p>
+                <div class="crop-tips">
+                    <h4>🌱 Farming Tips</h4>
+                    <ul id="modalTips"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

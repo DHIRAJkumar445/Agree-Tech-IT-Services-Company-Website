@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agreetech Agri-Store. Buy high-quality seeds, fertilizers, and tools.">
+    <meta name="theme-color" content="#0d9488">
+    <title>Agri-Store - Agreetech Solution</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">🌱 Agreetech Solution</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-lang-key="nav-home">Home</a>
+            <a href="about.html" data-lang-key="nav-about">About</a>
+            <a href="crops.html" data-lang-key="nav-crops">Crops</a>
+            <a href="scanner.html">Scanner</a>
+            <a href="dashboard.html" data-lang-key="nav-dash">Dashboard</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropbtn active">More ▾</button>
+                <div class="nav-dropdown-content">
+                    <a href="schemes.html" data-lang-key="nav-schemes">Govt Schemes</a>
+                    <a href="store.html" data-lang-key="nav-store" class="active">Agri-Store</a>
+                    <a href="community.html" data-lang-key="nav-community">Community</a>
+                </div>
+            </div>
+        </div>
+        <!-- Language Toggle -->
+        <div class="lang-toggle en" id="langToggle" onclick="toggleLanguage()" style="margin-right:1rem; margin-top:0.25rem;">
+            <div class="lang-slider"></div>
+            <span class="lang-option">EN</span>
+            <span class="lang-option">HI</span>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="logout()" class="logout-btn" id="logoutBtn">Logout</button>
+        <button onclick="toggleMenu()" class="menu-btn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <span class="page-hero-emoji">🛒</span>
+        <h1>Agri-Store Marketplace</h1>
+        <p>Buy premium seeds, fertilizers, and farming equipment. Order instantly via WhatsApp.</p>
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span class="current">Agri-Store</span>
+        </nav>
+    </div>
+
+    <section class="services reveal" style="padding-top:2rem">
+        <div class="store-grid">
+            
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">🌾</div>
+                <div class="product-info">
+                    <span class="product-cat">Seeds</span>
+                    <h3 class="product-title">High-Yield Wheat Seeds (Sharbati)</h3>
+                    <p class="product-desc">Premium quality, disease-resistant wheat seeds suitable for winter sowing. 10kg Bag.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹450</span>
+                        <button class="product-buy-btn" onclick="buyProduct('High-Yield Wheat Seeds (10kg)', '₹450')">
+                            💬 Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">🧪</div>
+                <div class="product-info">
+                    <span class="product-cat">Fertilizer</span>
+                    <h3 class="product-title">Organic NPK Liquid Fertilizer</h3>
+                    <p class="product-desc">100% organic growth booster suitable for all crops. Improves soil health. 1 Liter.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹299</span>
+                        <button class="product-buy-btn" onclick="buyProduct('Organic NPK Liquid (1L)', '₹299')">
+                            💬 Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">⛏️</div>
+                <div class="product-info">
+                    <span class="product-cat">Equipment</span>
+                    <h3 class="product-title">Heavy-Duty Hand Tiller</h3>
+                    <p class="product-desc">Ergonomic carbon steel hand tiller for easy weeding and soil loosening.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹850</span>
+                        <button class="product-buy-btn" onclick="buyProduct('Heavy-Duty Hand Tiller', '₹850')">
+                            💬 Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img">🧴</div>
+                <div class="product-info">
+                    <span class="product-cat">Pesticide</span>
+                    <h3 class="product-title">Neem Oil Spray (Eco-Friendly)</h3>
+                    <p class="product-desc">Natural pest control, safe for plants and soil. Protects against 200+ pest species. 500ml.</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹210</span>
+                        <button class="product-buy-btn" onclick="buyProduct('Neem Oil Spray (500ml)', '₹210')">
+                            💬 Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>🌱 Agreetech Solution</h3>
+                <p>Smart Farming with Modern Technology</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" aria-label="Twitter">🐦</a>
+                    <a href="https://wa.me/916206382586" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="crops.html">Crops</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+        <p class="copy">© 2026 Agreetech Solution. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <a href="https://wa.me/916206382586" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+        <span class="wa-pulse"></span>💬
+        <span class="wa-tooltip">Chat on WhatsApp</span>
+    </a>
+    <div id="toast"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

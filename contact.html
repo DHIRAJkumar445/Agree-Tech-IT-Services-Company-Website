@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Agreetech Solution — reach out for farming guidance, expert advice or support.">
+    <meta name="theme-color" content="#0d9488">
+    <title>Contact - Agreetech Solution</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">🌱 Agreetech Solution</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="crops.html">Crops</a>
+            <a href="contact.html">Contact</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="logout()" class="logout-btn" id="logoutBtn">Logout</button>
+        <button onclick="toggleMenu()" class="menu-btn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <span class="page-hero-emoji">📬</span>
+        <h1>Contact Us</h1>
+        <p>Have questions or need farming advice? We'd love to hear from you!</p>
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span class="current">Contact</span>
+        </nav>
+    </div>
+
+    <section class="contact reveal">
+        <div class="contact-info">
+            <div class="contact-info-item">
+                <span class="contact-icon">📧</span>
+                <a href="mailto:Dhirajrairaj76@gmail.com">Dhirajrairaj76@gmail.com</a>
+            </div>
+            <div class="contact-info-item">
+                <span class="contact-icon">📞</span>
+                <a href="tel:+916206382586">+91 6206382586</a>
+            </div>
+            <div class="contact-info-item">
+                <span class="contact-icon">📍</span>
+                <span>Agri Village, India</span>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form" id="contactFormWrapper">
+            <form id="contactForm" action="api/contact.php" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Success State (hidden by default) -->
+        <div class="contact-success" id="contactSuccess">
+            <div class="success-checkmark">✓</div>
+            <h3>Message Sent! 🎉</h3>
+            <p>Thank you for reaching out. We'll get back to you within 24 hours.</p>
+            <button onclick="resetContactForm()" class="btn btn-primary">Send Another</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>🌱 Agreetech Solution</h3>
+                <p>Smart Farming with Modern Technology</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
+                    <a href="https://wa.me/916206382586" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="crops.html">Crops</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+        <p class="copy">© 2026 Agreetech Solution. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <a href="https://wa.me/916206382586" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+        <span class="wa-pulse"></span>💬
+        <span class="wa-tooltip">Chat on WhatsApp</span>
+    </a>
+    <div id="toast">Message Sent Successfully</div>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Agreetech Solution Govt Schemes Portal. Find active agricultural schemes, check eligibility, and apply easily.">
+    <meta name="theme-color" content="#0d9488">
+    <title>Govt Schemes - Agreetech Solution</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loader"><div class="spinner"></div></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-logo">🌱 Agreetech Solution</a>
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-lang-key="nav-home">Home</a>
+            <a href="about.html" data-lang-key="nav-about">About</a>
+            <a href="crops.html" data-lang-key="nav-crops">Crops</a>
+            <a href="scanner.html">Scanner</a>
+            <a href="dashboard.html" data-lang-key="nav-dash">Dashboard</a>
+            <div class="nav-dropdown">
+                <button class="nav-dropbtn active">More ▾</button>
+                <div class="nav-dropdown-content">
+                    <a href="schemes.html" data-lang-key="nav-schemes" class="active">Govt Schemes</a>
+                    <a href="store.html" data-lang-key="nav-store">Agri-Store</a>
+                    <a href="community.html" data-lang-key="nav-community">Community</a>
+                </div>
+            </div>
+        </div>
+        <!-- Language Toggle -->
+        <div class="lang-toggle en" id="langToggle" onclick="toggleLanguage()" style="margin-right:1rem; margin-top:0.25rem;">
+            <div class="lang-slider"></div>
+            <span class="lang-option">EN</span>
+            <span class="lang-option">HI</span>
+        </div>
+        <button onclick="toggleDarkMode()" class="dark-btn" id="darkModeBtn" aria-label="Toggle dark mode">🌙</button>
+        <button onclick="logout()" class="logout-btn" id="logoutBtn">Logout</button>
+        <button onclick="toggleMenu()" class="menu-btn" aria-label="Toggle menu">☰</button>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <span class="page-hero-emoji">🏛️</span>
+        <h1>Government Schemes</h1>
+        <p>Explore active agricultural schemes designed to provide financial and technical support to farmers.</p>
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>›</span>
+            <span class="current">Schemes</span>
+        </nav>
+    </div>
+
+    <section class="services reveal" style="padding-top:2rem">
+        <div style="max-width:800px; margin: 0 auto;">
+            
+            <!-- Scheme 1 -->
+            <div class="scheme-card">
+                <div class="scheme-badge">Active</div>
+                <h3 class="scheme-title">PM-Kisan Samman Nidhi</h3>
+                <p class="scheme-desc">An initiative by the Government of India in which all farmers will get up to ₹6,000 per year as minimum income support.</p>
+                <div class="scheme-details">
+                    <div>
+                        <div class="scheme-detail-label">Beneficiaries</div>
+                        <div class="scheme-detail-val">Small & Marginal Farmers</div>
+                    </div>
+                    <div>
+                        <div class="scheme-detail-label">Financial Aid</div>
+                        <div class="scheme-detail-val">₹6,000 / Year</div>
+                    </div>
+                </div>
+                <a href="https://wa.me/916206382586?text=I%20want%20to%20apply%20for%20PM-Kisan" target="_blank" class="btn btn-primary" style="font-size:0.9rem; padding:0.6rem 1.2rem;">Apply Help via WhatsApp</a>
+            </div>
+
+            <!-- Scheme 2 -->
+            <div class="scheme-card">
+                <div class="scheme-badge" style="background:#f59e0b;">Ending Soon</div>
+                <h3 class="scheme-title">Pradhan Mantri Fasal Bima Yojana (PMFBY)</h3>
+                <p class="scheme-desc">A comprehensive crop insurance scheme to provide financial support to farmers suffering crop loss/damage arising out of unforeseen events.</p>
+                <div class="scheme-details">
+                    <div>
+                        <div class="scheme-detail-label">Coverage</div>
+                        <div class="scheme-detail-val">Natural Calamities, Pests</div>
+                    </div>
+                    <div>
+                        <div class="scheme-detail-label">Premium</div>
+                        <div class="scheme-detail-val">1.5% - 2% (Kharif/Rabi)</div>
+                    </div>
+                </div>
+                <a href="https://wa.me/916206382586?text=I%20want%20to%20apply%20for%20Fasal%20Bima" target="_blank" class="btn btn-primary" style="font-size:0.9rem; padding:0.6rem 1.2rem;">Apply Help via WhatsApp</a>
+            </div>
+
+            <!-- Scheme 3 -->
+            <div class="scheme-card">
+                <div class="scheme-badge">Active</div>
+                <h3 class="scheme-title">Kisan Credit Card (KCC)</h3>
+                <p class="scheme-desc">Aim is to meet the comprehensive credit requirements of the agriculture sector and by providing financial support to farmers.</p>
+                <div class="scheme-details">
+                    <div>
+                        <div class="scheme-detail-label">Interest Rate</div>
+                        <div class="scheme-detail-val">As low as 4% (with subvention)</div>
+                    </div>
+                    <div>
+                        <div class="scheme-detail-label">Limit</div>
+                        <div class="scheme-detail-val">Up to ₹3.00 Lakhs</div>
+                    </div>
+                </div>
+                <a href="https://wa.me/916206382586?text=I%20want%20to%20apply%20for%20KCC" target="_blank" class="btn btn-primary" style="font-size:0.9rem; padding:0.6rem 1.2rem;">Apply Help via WhatsApp</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>🌱 Agreetech Solution</h3>
+                <p>Smart Farming with Modern Technology</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com" aria-label="Facebook">📘</a>
+                    <a href="https://twitter.com" aria-label="Twitter">🐦</a>
+                    <a href="https://wa.me/916206382586" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="crops.html">Crops</a>
+                <a href="contact.html">Contact</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+        </div>
+        <p class="copy">© 2026 Agreetech Solution. All rights reserved.</p>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+    <a href="https://wa.me/916206382586" target="_blank" class="whatsapp-btn" aria-label="WhatsApp">
+        <span class="wa-pulse"></span>💬
+        <span class="wa-tooltip">Chat on WhatsApp</span>
+    </a>
+    <div id="toast"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
